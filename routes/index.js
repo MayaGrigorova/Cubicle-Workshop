@@ -28,7 +28,7 @@ router.get('/details/:id', (req, res) =>{
 
 router.get('/*', (req, res) =>{
     res.render('404', {
-        title: 'Error | Cube Workshop'
+        title: 'Cube Workshop | Error'
     })
 })
 
