@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const { getAllCubes } = require('../controllers/cubes')
+const { getCube } = require('../controllers/database')
 
 const router = Router()
 
@@ -25,8 +26,11 @@ router.get('/create', (req, res) =>{
 })
 
 router.get('/details/:id', (req, res) =>{
-    res.render('details', {
-        title: 'Cube Workshop | Details'
+    getCube(req.params.id, (cube) => {
+            res.render('details', {
+            title: 'Cube Workshop | Details',
+            ...cube
+        })
     })
 })
 
