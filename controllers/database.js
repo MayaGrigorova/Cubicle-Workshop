@@ -16,8 +16,11 @@ const saveCube = (cube) => {
     })
 }
 
-const getCube = id => {
-        
+const getCube = (id, callback) => {
+        getCubes(cubes => {
+           const cube = cubes.filter(c => c.id === id)[0]
+           callback(cube)
+        })
 }
 
 const getCubes = (callback) => {
